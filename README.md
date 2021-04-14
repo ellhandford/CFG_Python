@@ -1,2 +1,2 @@
 # CFG_Python
-Run highscore .py file before main project .pt file
+Run make a csv for highscore .py file before main project .pt file
