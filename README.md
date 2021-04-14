@@ -1,2 +1,2 @@
 # CFG_Python
-Final Project Code
+Run highscore .py file before main project .pt file
