@@ -39,7 +39,7 @@ def run():
         elif poke == '3':
             my_pokemon = choice3
         else:
-            print('Not an option')
+            print("You didn't draw that card!")
             return
 
         print('You chose {}'.format(my_pokemon['name']))
@@ -90,7 +90,7 @@ def run():
         elif poke == '3':
             my_pokemon = choice3
         else:
-            print('Not an option')
+            print("You didn't draw that card!")
             return
 
 
