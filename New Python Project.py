@@ -36,8 +36,11 @@ def run():
             my_pokemon = choice1
         elif poke == '2' :
             my_pokemon = choice2
-        else:
+        elif poke == '3':
             my_pokemon = choice3
+        else:
+            print('Not an option')
+            return
 
         print('You chose {}'.format(my_pokemon['name']))
         print('id: {}'.format(my_pokemon['id']))
@@ -84,8 +87,13 @@ def run():
             my_pokemon = choice1
         elif poke == '2':
             my_pokemon = choice2
-        else:
+        elif poke == '3':
             my_pokemon = choice3
+        else:
+            print('Not an option')
+            return
+
+
         print('You chose {}'.format(my_pokemon['name']))
         print('id: {}'.format(my_pokemon['id']))
         print('height: {}'.format(my_pokemon['height']))
