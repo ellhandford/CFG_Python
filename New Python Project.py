@@ -1,5 +1,7 @@
 import csv
 
+from sys import exit
+
 field_names = ['my_score', 'opponent_score']
 
 with open('current.csv', 'w+') as csv_file:
@@ -144,7 +146,18 @@ def run():
             print('Draw!')
 
 cardnumbers = list(range(1,16))
-number = int(input('How many rounds would you like to play? '))
+
+number = int(input('How many rounds would you like to play: 1, 2 or 3?'))
+
+if number == 1:
+    print('Get ready for Pokemon Top Trumps!')
+elif number == 2:
+    print('Get ready for Pokemon Top Trumps!')
+elif number == 3:
+    print('Get ready for Pokemon Top Trumps!')
+else:
+    print("Oh no, you don't have enough cards for {} rounds, try again!".format(number))
+    exit()
 
 Count = 0
 
