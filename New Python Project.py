@@ -10,7 +10,9 @@ import random
 import requests
 
 def random_pokemon():
-    pokemon_number = random.randint(1, 151)
+    pokemon_number = random.choice(tuple(cardnumbers))
+    cardnumbers.remove(pokemon_number)
+    #print(cardnumbers)
     url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokemon_number)
     response = requests.get(url)
     pokemon = response.json()
@@ -141,7 +143,7 @@ def run():
         else:
             print('Draw!')
 
-
+cardnumbers = list(range(1,15))
 number = int(input('How many rounds would you like to play? '))
 
 Count = 0
