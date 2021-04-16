@@ -145,7 +145,7 @@ def run():
         else:
             print('Draw!')
 
-cardnumbers = list(range(1,15))
+cardnumbers = list(range(1,16))
 
 number = int(input('How many rounds would you like to play: 1, 2 or 3?'))
 
