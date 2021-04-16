@@ -161,8 +161,6 @@ else:
 
 Count = 0
 
-print('Get ready for Pokemon Top Trumps!')
-
 for i in range(number):
     Count = Count + 1
     print(' ')
