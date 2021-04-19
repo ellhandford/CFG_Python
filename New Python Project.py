@@ -52,8 +52,11 @@ def run():
         print('weight: {}'.format(my_pokemon['weight']))
         stat_choice = input('Which stat do you want to use? (id, height, weight) ')
         opponent_pokemon = random_pokemon()
-        print('The opponent chose {}'.format(opponent_pokemon['name']))
+        print('Your opponent chose {}'.format(opponent_pokemon['name']))
         print('Their {} is {}'.format(stat_choice, (opponent_pokemon[stat_choice])))
+        
+        print('{} vs {}'.format(my_pokemon['name'], opponent_pokemon['name']))
+
         my_stat = my_pokemon[stat_choice]
         opponent_stat = opponent_pokemon[stat_choice]
         if my_stat > opponent_stat:
@@ -102,6 +105,7 @@ def run():
         print('id: {}'.format(my_pokemon['id']))
         print('height: {}'.format(my_pokemon['height']))
         print('weight: {}'.format(my_pokemon['weight']))
+        
         def random_choice():
             choice_number = random.randint(1, 3)
             if choice_number == 1:
@@ -147,7 +151,7 @@ def run():
 
 cardnumbers = list(range(1,16))
 
-number = int(input('How many rounds would you like to play: 1, 2 or 3?'))
+number = int(input('How many rounds would you like to play: 1, 2 or 3? '))
 
 if number == 1:
     print('Get ready for Pokemon Top Trumps!')
