@@ -37,6 +37,7 @@ def run():
                             choice2['name'],
                             choice3['name']))
         poke = input('Chose 1, 2 or 3: ')
+        if poke == '1' :
             my_pokemon = choice1
         elif poke == '2' :
             my_pokemon = choice2
