@@ -1,4 +1,4 @@
-import csv
+         import csv
 
 from sys import exit
 
@@ -11,35 +11,41 @@ with open('current.csv', 'w+') as csv_file:
 import random
 import requests
 
-def random_pokemon():
-    pokemon_number = random.choice(tuple(cardnumbers))
-    cardnumbers.remove(pokemon_number)
-    #print(cardnumbers)
-    url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokemon_number)
+
+def random_pet():
+    pet_number = random.choice(tuple(cardnumbers))
+    cardnumbers.remove(pet_number)
+    # print(cardnumbers)
+    url = 'http://bdddb5fbcfc8.ngrok.io/animals/{}'.format(pet_number)
     response = requests.get(url)
     pokemon = response.json()
 
     return {
         'name': pokemon['name'],
         'id': pokemon['id'],
-        'height': pokemon['height'],
-        'weight': pokemon['weight'],
+        'size': pokemon['size'],
+        'fluffiness': pokemon['fluffiness'],
+        'grumpiness': pokemon['grumpiness'],
+        'friendliness': pokemon['friendliness'],
+        'intelligence': pokemon['intelligence'],
+        'mischief': pokemon['mischief'],
+        'cuteness': pokemon['cuteness'],
     }
 
 
 def run():
     if random_num == 1:
-        choice1 = random_pokemon()
-        choice2 = random_pokemon()
-        choice3 = random_pokemon()
+        choice1 = random_pet()
+        choice2 = random_pet()
+        choice3 = random_pet()
         print('Which pet would you like to play:')
         print('1. {}. 2. {} or 3. {}'.format(choice1['name'],
-                            choice2['name'],
-                            choice3['name']))
+                                             choice2['name'],
+                                             choice3['name']))
         poke = input('Chose 1, 2 or 3: ')
-        if poke == '1' :
+        if poke == '1':
             my_pokemon = choice1
-        elif poke == '2' :
+        elif poke == '2':
             my_pokemon = choice2
         elif poke == '3':
             my_pokemon = choice3
@@ -49,13 +55,14 @@ def run():
 
         print('You chose {}'.format(my_pokemon['name']))
         print('id: {}'.format(my_pokemon['id']))
-        print('height: {}'.format(my_pokemon['height']))
-        print('weight: {}'.format(my_pokemon['weight']))
-        stat_choice = input('Which stat do you want to use? (id, height, weight) ')
-        opponent_pokemon = random_pokemon()
+        print('size: {}'.format(my_pokemon['size']))
+        print('fluffiness: {}'.format(my_pokemon['fluffiness']))
+        print('grumpiness: {}'.format(my_pokemon['grumpiness']))
+        stat_choice = input('Which stat do you want to use? (id, size, fluffiness, grumpiness) ')
+        opponent_pokemon = random_pet()
         print('Your opponent chose {}'.format(opponent_pokemon['name']))
         print('Their {} is {}'.format(stat_choice, (opponent_pokemon[stat_choice])))
-        
+
         print('{} vs {}'.format(my_pokemon['name'], opponent_pokemon['name']))
 
         my_stat = my_pokemon[stat_choice]
@@ -65,7 +72,7 @@ def run():
             import csv
             field_names = ['my_score', 'opponent_score']
             data = [
-                {'my_score': 1, 'opponent_score':0},
+                {'my_score': 1, 'opponent_score': 0},
             ]
             with open('current.csv', 'a') as csv_file:
                 spreadsheet = csv.DictWriter(csv_file, fieldnames=field_names)
@@ -84,13 +91,13 @@ def run():
             print('Draw!')
 
     if random_num == 2:
-        choice1 = random_pokemon()
-        choice2 = random_pokemon()
-        choice3 = random_pokemon()
+        choice1 = random_pet()
+        choice2 = random_pet()
+        choice3 = random_pet()
         print('Which pet would you like to play:')
         print('1. {}. 2. {} or 3. {}'.format(choice1['name'],
-                            choice2['name'],
-                            choice3['name']))
+                                             choice2['name'],
+                                             choice3['name']))
         poke = input('Chose 1, 2 or 3: ')
         if poke == '1':
             my_pokemon = choice1
@@ -102,26 +109,28 @@ def run():
             print("You didn't draw that card!")
             return
 
-
         print('You chose {}'.format(my_pokemon['name']))
-        print('id: {}'.format(my_pokemon['id']))
-        print('height: {}'.format(my_pokemon['height']))
-        print('weight: {}'.format(my_pokemon['weight']))
-        
+        print('friendliness: {}'.format(my_pokemon['friendliness']))
+        print('mischief: {}'.format(my_pokemon['mischief']))
+        print('cuteness: {}'.format(my_pokemon['cuteness']))
+        print('intelligence: {}'.format(my_pokemon['intelligence']))
+
         def random_choice():
-            choice_number = random.randint(1, 3)
+            choice_number = random.randint(1, 4)
             if choice_number == 1:
-                choice = 'id'
+                choice = 'friendliness'
             elif choice_number == 2:
-                choice = 'height'
+                choice = 'mischief'
+            elif choice_number == 3:
+                choice = 'cuteness'
             else:
-                choice = 'weight'
+                choice = 'intelligence'
             return choice
 
         opponent_choice = random_choice()
         print('Your opponent would like to use the stat: {}'.format(opponent_choice))
 
-        opponent_pokemon = random_pokemon()
+        opponent_pokemon = random_pet()
         print('The opponent chose {}'.format(opponent_pokemon['name']))
         print('Their {} is {}'.format(opponent_choice, (opponent_pokemon[opponent_choice])))
 
@@ -151,16 +160,17 @@ def run():
         else:
             print('Draw!')
 
-cardnumbers = list(range(1,16))
+
+cardnumbers = list(range(1, 16))
 
 number = int(input('How many rounds would you like to play: 1, 2 or 3? '))
 
 if number == 1:
-    print('Get ready for Pokemon Top Trumps!')
+    print('Get ready for Pawfect Pets Top Trumps!')
 elif number == 2:
-    print('Get ready for Pokemon Top Trumps!')
+    print('Get ready for Pawfect Pets Top Trumps!')
 elif number == 3:
-    print('Get ready for Pokemon Top Trumps!')
+    print('Get ready for Pawfect Pets Top Trumps!')
 else:
     print("Oh no, you don't have enough cards for {} rounds, try again!".format(number))
     exit()
@@ -183,7 +193,6 @@ with open('current.csv', 'r') as csv_file:
         sco = row['my_score']
         my_score.append(sco)
 
-
 with open('current.csv', 'r') as csv_file:
     spreadsheet = csv.DictReader(csv_file)
 
@@ -202,8 +211,6 @@ for ele in range(0, len(my_score)):
 
 for ele in range(0, len(opponent_score)):
     opponent_total = opponent_total + int(opponent_score[ele])
-
-
 
 print(' ')
 print('And the final results are in...')
@@ -240,7 +247,6 @@ with open('highscore.csv', 'r') as csv_file:
     for row in spreadsheet:
         sco = row['score']
         scores.append(sco)
-
 
 highest_score = max(scores)
 print('')
