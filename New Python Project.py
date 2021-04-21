@@ -1,4 +1,4 @@
-         import csv
+import csv
 
 from sys import exit
 
