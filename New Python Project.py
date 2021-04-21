@@ -133,6 +133,8 @@ def run():
         opponent_pokemon = random_pet()
         print('The opponent chose {}'.format(opponent_pokemon['name']))
         print('Their {} is {}'.format(opponent_choice, (opponent_pokemon[opponent_choice])))
+        
+        print('{} vs {}'.format(my_pokemon['name'], opponent_pokemon['name']))
 
         my_stat = my_pokemon[opponent_choice]
         opponent_stat = opponent_pokemon[opponent_choice]
