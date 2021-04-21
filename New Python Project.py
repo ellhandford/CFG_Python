@@ -32,11 +32,11 @@ def run():
         choice1 = random_pokemon()
         choice2 = random_pokemon()
         choice3 = random_pokemon()
-        poke = input('Which pokemon would you like to play: 1. {}. 2. {} or 3. {} (chose 1, 2 or 3): '.
-                     format(choice1['name'],
+        print('Which pet would you like to play:')
+        print('1. {}. 2. {} or 3. {}'.format(choice1['name'],
                             choice2['name'],
                             choice3['name']))
-        if poke == '1' :
+        poke = input('Chose 1, 2 or 3: ')
             my_pokemon = choice1
         elif poke == '2' :
             my_pokemon = choice2
@@ -86,10 +86,11 @@ def run():
         choice1 = random_pokemon()
         choice2 = random_pokemon()
         choice3 = random_pokemon()
-        poke = input('Which pokemon would you like to play: 1. {}. 2. {} or 3. {} (chose 1, 2 or 3): '.
-                     format(choice1['name'],
+        print('Which pet would you like to play:')
+        print('1. {}. 2. {} or 3. {}'.format(choice1['name'],
                             choice2['name'],
                             choice3['name']))
+        poke = input('Chose 1, 2 or 3: ')
         if poke == '1':
             my_pokemon = choice1
         elif poke == '2':
