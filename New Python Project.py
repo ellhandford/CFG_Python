@@ -2,6 +2,8 @@ import csv
 
 from sys import exit
 
+import time
+
 field_names = ['my_score', 'opponent_score']
 
 with open('current.csv', 'w+') as csv_file:
