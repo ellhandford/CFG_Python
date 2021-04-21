@@ -63,7 +63,7 @@ def run():
         stat_choice = input('Which stat do you want to use? (id, size, fluffiness, grumpiness) ')
         opponent_pokemon = random_pet()
         print('Your opponent chose {}'.format(opponent_pokemon['name']))
-        time.sleep(2)
+        time.sleep(3)
         print('Their {} is {}'.format(stat_choice, (opponent_pokemon[stat_choice])))
         time.sleep(2)
 
@@ -138,7 +138,7 @@ def run():
 
         opponent_pokemon = random_pet()
         print('The opponent chose {}'.format(opponent_pokemon['name']))
-        time.sleep(2)
+        time.sleep(3)
         print('Their {} is {}'.format(opponent_choice, (opponent_pokemon[opponent_choice])))
         time.sleep(2)
         
@@ -193,6 +193,7 @@ for i in range(number):
     print('Round {}: '.format(Count))
     random_num = random.randint(1, 2)
     run()
+    time.sleep(5)
 
 with open('current.csv', 'r') as csv_file:
     spreadsheet = csv.DictReader(csv_file)
