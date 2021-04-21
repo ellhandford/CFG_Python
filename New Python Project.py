@@ -61,7 +61,9 @@ def run():
         stat_choice = input('Which stat do you want to use? (id, size, fluffiness, grumpiness) ')
         opponent_pokemon = random_pet()
         print('Your opponent chose {}'.format(opponent_pokemon['name']))
+        time.sleep(2)
         print('Their {} is {}'.format(stat_choice, (opponent_pokemon[stat_choice])))
+        time.sleep(2)
 
         print('{} vs {}'.format(my_pokemon['name'], opponent_pokemon['name']))
 
@@ -127,12 +129,16 @@ def run():
                 choice = 'intelligence'
             return choice
 
+        time.sleep(2)
+        
         opponent_choice = random_choice()
         print('Your opponent would like to use the stat: {}'.format(opponent_choice))
 
         opponent_pokemon = random_pet()
         print('The opponent chose {}'.format(opponent_pokemon['name']))
+        time.sleep(2)
         print('Their {} is {}'.format(opponent_choice, (opponent_pokemon[opponent_choice])))
+        time.sleep(2)
         
         print('{} vs {}'.format(my_pokemon['name'], opponent_pokemon['name']))
 
