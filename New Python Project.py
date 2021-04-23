@@ -18,20 +18,20 @@ def random_pet():
     pet_number = random.choice(tuple(cardnumbers))
     cardnumbers.remove(pet_number)
     # print(cardnumbers)
-    url = 'http://bdddb5fbcfc8.ngrok.io/animals/{}'.format(pet_number)
+    url = 'http://21c5539de9dd.ngrok.io/animals/{}'.format(pet_number)
     response = requests.get(url)
-    pokemon = response.json()
+    pet = response.json()
 
     return {
-        'name': pokemon['name'],
-        'id': pokemon['id'],
-        'size': pokemon['size'],
-        'fluffiness': pokemon['fluffiness'],
-        'grumpiness': pokemon['grumpiness'],
-        'friendliness': pokemon['friendliness'],
-        'intelligence': pokemon['intelligence'],
-        'mischief': pokemon['mischief'],
-        'cuteness': pokemon['cuteness'],
+        'name': pet['name'],
+        'id': pet['id'],
+        'size': pet['size'],
+        'fluffiness': pet['fluffiness'],
+        'grumpiness': pet['grumpiness'],
+        'friendliness': pet['friendliness'],
+        'intelligence': pet['intelligence'],
+        'mischief': pet['mischief'],
+        'cuteness': pet['cuteness'],
     }
 
 
@@ -44,33 +44,33 @@ def run():
         print('1. {}. 2. {} or 3. {}'.format(choice1['name'],
                                              choice2['name'],
                                              choice3['name']))
-        poke = input('Chose 1, 2 or 3: ')
-        if poke == '1':
-            my_pokemon = choice1
-        elif poke == '2':
-            my_pokemon = choice2
-        elif poke == '3':
-            my_pokemon = choice3
+        pet_choice = input('Chose 1, 2 or 3: ')
+        if pet_choice == '1':
+            my_pet = choice1
+        elif pet_choice == '2':
+            my_pet = choice2
+        elif pet_choice == '3':
+            my_pet = choice3
         else:
             print("You didn't draw that card!")
             return
 
-        print('You chose {}'.format(my_pokemon['name']))
-        print('id: {}'.format(my_pokemon['id']))
-        print('size: {}'.format(my_pokemon['size']))
-        print('fluffiness: {}'.format(my_pokemon['fluffiness']))
-        print('grumpiness: {}'.format(my_pokemon['grumpiness']))
+        print('You chose {}'.format(my_pet['name']))
+        print('id: {}'.format(my_pet['id']))
+        print('size: {}'.format(my_pet['size']))
+        print('fluffiness: {}'.format(my_pet['fluffiness']))
+        print('grumpiness: {}'.format(my_pet['grumpiness']))
         stat_choice = input('Which stat do you want to use? (id, size, fluffiness, grumpiness) ')
-        opponent_pokemon = random_pet()
-        print('Your opponent chose {}'.format(opponent_pokemon['name']))
+        opponent_pet = random_pet()
+        print('Your opponent chose {}'.format(opponent_pet['name']))
         time.sleep(3)
-        print('Their {} is {}'.format(stat_choice, (opponent_pokemon[stat_choice])))
+        print('Their {} is {}'.format(stat_choice, (opponent_pet[stat_choice])))
         time.sleep(2)
 
-        print('{} vs {}'.format(my_pokemon['name'], opponent_pokemon['name']))
+        print('{} vs {}'.format(my_pet['name'], opponent_pet['name']))
 
-        my_stat = my_pokemon[stat_choice]
-        opponent_stat = opponent_pokemon[stat_choice]
+        my_stat = my_pet[stat_choice]
+        opponent_stat = opponent_pet[stat_choice]
         if my_stat > opponent_stat:
             print('You Win!')
             import csv
@@ -102,22 +102,22 @@ def run():
         print('1. {}. 2. {} or 3. {}'.format(choice1['name'],
                                              choice2['name'],
                                              choice3['name']))
-        poke = input('Chose 1, 2 or 3: ')
-        if poke == '1':
-            my_pokemon = choice1
-        elif poke == '2':
-            my_pokemon = choice2
-        elif poke == '3':
-            my_pokemon = choice3
+        pet_choice = input('Chose 1, 2 or 3: ')
+        if pet_choice == '1':
+            my_pet = choice1
+        elif pet_choice == '2':
+            my_pet = choice2
+        elif pet_choice == '3':
+            my_pet = choice3
         else:
             print("You didn't draw that card!")
             return
 
-        print('You chose {}'.format(my_pokemon['name']))
-        print('friendliness: {}'.format(my_pokemon['friendliness']))
-        print('mischief: {}'.format(my_pokemon['mischief']))
-        print('cuteness: {}'.format(my_pokemon['cuteness']))
-        print('intelligence: {}'.format(my_pokemon['intelligence']))
+        print('You chose {}'.format(my_pet['name']))
+        print('friendliness: {}'.format(my_pet['friendliness']))
+        print('mischief: {}'.format(my_pet['mischief']))
+        print('cuteness: {}'.format(my_pet['cuteness']))
+        print('intelligence: {}'.format(my_pet['intelligence']))
 
         def random_choice():
             choice_number = random.randint(1, 4)
@@ -136,16 +136,16 @@ def run():
         opponent_choice = random_choice()
         print('Your opponent would like to use the stat: {}'.format(opponent_choice))
 
-        opponent_pokemon = random_pet()
-        print('The opponent chose {}'.format(opponent_pokemon['name']))
+        opponent_pet = random_pet()
+        print('The opponent chose {}'.format(opponent_pet['name']))
         time.sleep(3)
-        print('Their {} is {}'.format(opponent_choice, (opponent_pokemon[opponent_choice])))
+        print('Their {} is {}'.format(opponent_choice, (opponent_pet[opponent_choice])))
         time.sleep(2)
         
-        print('{} vs {}'.format(my_pokemon['name'], opponent_pokemon['name']))
+        print('{} vs {}'.format(my_pet['name'], opponent_pet['name']))
 
-        my_stat = my_pokemon[opponent_choice]
-        opponent_stat = opponent_pokemon[opponent_choice]
+        my_stat = my_pet[opponent_choice]
+        opponent_stat = opponent_pet[opponent_choice]
 
         if my_stat > opponent_stat:
             print('You Win!')
